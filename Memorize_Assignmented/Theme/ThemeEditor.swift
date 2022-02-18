@@ -11,12 +11,15 @@ struct ThemeEditor: View {
     @Binding var theme: Theme
     
     var body: some View {
-        Form {
-            nameSection
-            colorChooserSection
-            numberOfPairsOfCardsSection
-            addEmojisSection
-            removeEmojisSection
+        NavigationView {
+            Form {
+                nameSection
+                colorChooserSection
+                numberOfPairsOfCardsSection
+                addEmojisSection
+                removeEmojisSection
+            }
+            .navigationTitle("Edit \"\(theme.name)\"")
         }
     }
     

@@ -39,10 +39,7 @@ struct ThemeChooser: View {
                 }
             }
             .popover(item: $themeToEdit) { theme in
-                NavigationView {
-                    ThemeEditor(theme: $store.themes[theme])
-                        .navigationTitle("Edit \"\(theme.name)\"")
-                }
+                ThemeEditor(theme: $store.themes[theme])
             }
             .environment(\.editMode, $editMode)
         }
