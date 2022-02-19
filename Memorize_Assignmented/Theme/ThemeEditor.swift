@@ -103,7 +103,11 @@ struct ThemeEditor: View {
     
     // MARK: - Add / Remove emojis Sections
     
-    @State private var emojis: String
+    @State private var emojis: String {
+        didSet {
+            numberOfPairsOfCards = emojis.count
+        }
+    }
     @State private var emojisToAdd: String
     
     private var addEmojisSection: some View {
@@ -127,7 +131,9 @@ struct ThemeEditor: View {
                     ForEach(emojis, id: \.self) { emoji in
                         Text(emoji)
                             .onTapGesture {
-                                self.emojis.removeAll(where: { String($0) == emoji })
+                                if emojis.count > Constants.minNumberOfPairsOfCards {
+                                    self.emojis.removeAll(where: { String($0) == emoji })
+                                }
                             }
                     }
                 }
