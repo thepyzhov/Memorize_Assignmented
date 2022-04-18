@@ -1,5 +1,7 @@
 # Memorize Game
 
+###### Technologies: SwiftUI, MVVM, Combine, UserDefaults.
+
 ### Description
 
 It's a card-based game in which you should find similar pairs of cards.
